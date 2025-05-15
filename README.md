@@ -1,9 +1,10 @@
 # AI Interview Simulator
 
-
-
 An interactive Streamlit application that simulates job interviews with AI-powered feedback for interview practice.
 
+## 🌐 Live Demo
+
+Try it out live: [AI Interview Simulator Demo](https://chat-bot-inter.streamlit.app/)
 ---
 
 ## ✨ Features
