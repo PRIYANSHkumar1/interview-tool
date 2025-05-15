@@ -92,10 +92,14 @@ if st.session_state.setup_complete and not st.session_state.feedback_shown and n
     icon="👋",
     )
 
-    # For demonstration purposes only - replace with st.secrets in production
+    # Configure OpenAI client with proper headers for OpenRouter
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
-        api_key=st.secrets["OPENROUTER_API_KEY"]  # Store your API key in Streamlit secrets
+        api_key=st.secrets["OPENROUTER_API_KEY"],
+        default_headers={
+            "HTTP-Referer": "https://streamlit.app",  # Replace with your actual site URL
+            "X-Title": "Streamlit Interview Chatbot"
+        }
     )
     
 
@@ -176,10 +180,14 @@ if st.session_state.feedback_shown:
 
     conversation_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in st.session_state.messages])
 
-    # For demonstration purposes only - replace with st.secrets in production
+    # Configure OpenAI client for feedback with proper headers
     feedback_client = OpenAI(
-         base_url="https://openrouter.ai/api/v1",
-         api_key=st.secrets["OPENROUTER_API_KEY"]
+        base_url="https://openrouter.ai/api/v1",
+        api_key=st.secrets["OPENROUTER_API_KEY"],
+        default_headers={
+            "HTTP-Referer": "https://streamlit.app",  # Replace with your actual site URL
+            "X-Title": "Streamlit Interview Chatbot"
+        }
     )
    
 
